@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* 链接样式优化，更醒目且有交互反馈 */
+        .link-btn {
+            color: #4285f4;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            border: 1px solid #4285f4;
+            border-radius: 4px;
+        }
+        .link-btn:hover {
+            background-color: #f0f7ff;
+        }
+        /* 生日祝福文字样式增强 */
+        .birthday-text {
+            color: #0000FF; /* 柔和的红色调，可改为其他颜色值如#4CAF50（绿色） */
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in; /* 淡入动画 */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:showMessage()" class="link-btn">点我(注意，这不是广告哦)～</a>
+
+<script>
+// 优化逻辑：避免重复创建元素
+let messageCreated = false;
+function showMessage() {
+    if (messageCreated) return; // 已点击过则不再执行
+    
+    const message = document.createElement('p');
+    message.className = 'birthday-text'; // 使用CSS类统一管理样式
+    message.textContent = '鱼儿大王，生日快乐~';
+    document.body.appendChild(message);
+    messageCreated = true;
+}
+</script>
+</body>
+</html>
